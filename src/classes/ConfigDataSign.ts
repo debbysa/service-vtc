@@ -1,4 +1,4 @@
-import { IGetDataSign } from '../interfaces/category.interface'
+import { IGetDataSign } from '../interfaces/requestvtc.interface'
 import rs from 'jsrsasign'
 import cryptoJs from 'crypto-js'
 

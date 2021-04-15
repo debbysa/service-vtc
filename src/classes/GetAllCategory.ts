@@ -1,6 +1,6 @@
 import axios from 'axios'
 import { Config } from './Config'
-import { IGetCategory } from '../interfaces/category.interface'
+import { IGetCategory } from '../interfaces/requestvtc.interface'
 import { ConfigDataSign } from './ConfigDataSign'
 import { ConfigDataInfo } from './ConfigDataInfo'
 
