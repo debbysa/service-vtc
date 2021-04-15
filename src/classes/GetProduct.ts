@@ -1,17 +1,17 @@
 import axios from 'axios'
-import { Config } from './Config'
 import { IGetCategory } from '../interfaces/requestvtc.interface'
-import { ConfigDataSign } from './ConfigDataSign'
+import { Config } from './Config'
 import { ConfigDataInfo } from './ConfigDataInfo'
+import { ConfigDataSign } from './ConfigDataSign'
 
-export class GetCategory {
+export class GetProduct {
   private cfg: Config
 
   constructor(config: Config) {
     this.cfg = config
   }
 
-  getCategory = async (data: IGetCategory) => {
+  getProduct = async (data: IGetCategory) => {
     const combinedParams =
       data.partnerCode +
       '|' +
@@ -29,8 +29,6 @@ export class GetCategory {
       '|' +
       data.data
 
-    console.log(this.cfg.getPrivateKey)
-
     let encodeDataSign = new ConfigDataSign()
 
     let dataSignBase64 = encodeDataSign.getDataSign({
@@ -47,21 +45,15 @@ export class GetCategory {
     }
 
     try {
-      const response = await axios.post(this.cfg.domain_url + '/share/GetInfo/get-category', data, {
+      const response = await axios.post(this.cfg.domain_url + '/share/GetInfo/get-product', data, {
         headers,
       })
 
-      //   let dataInfoDecode = ''
       if (response.data.dataInfo) {
         let dataInfoConfig = new ConfigDataInfo()
         let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
         console.log(dataInfoDecode)
         response.data.dataInfo = dataInfoDecode
-        // console.log('lalalalal')
-        // const dataInfoBase64 = cryptoJs.enc.Base64.parse(response.data.dataInfo)
-        // dataInfoDecode = cryptoJs.enc.Utf8.stringify(dataInfoBase64)
-        // // console.log(dataInfoDecode)
-        // response.data.dataInfo = JSON.parse(dataInfoDecode)
       }
 
       console.log('get Category VTC response: ', response.data)

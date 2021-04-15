@@ -1,6 +1,8 @@
 import { Config } from './classes/Config'
 import { GetAllCategory } from './classes/GetAllCategory'
+import { GetBalance } from './classes/GetBalance'
 import { GetCategory } from './classes/GetCategory'
+import { GetProduct } from './classes/GetProduct'
 
 let config = new Config(
   'http://117.103.207.81:8080',
@@ -40,16 +42,47 @@ let allCategoryService = new GetAllCategory(config)
 
 let categoryService = new GetCategory(config)
 
-categoryService.getCategory({
+// categoryService.getCategory({
+//   partnerCode: '0912345331',
+//   categoryID: '235',
+//   productID: '',
+//   productAmount: '',
+//   customerID: '',
+//   partnerTransID: '20210405090435641',
+//   partnerTransDate: '20210405090435',
+//   data: '',
+//   dataSign: '',
+//   // dataSign:
+//   //   'at1l9ktAv4EQVuzoMj78KCwPg66jYCdLHEphcUFFD1E9R0IQCXYiVqdeyWS2Chv3275beLQzO13b7dCRkczucEOVQJeW09yoeXNup77QY08SH7gmo/vHbw9J/YFS5skocqa8nxrhRq3sZSqkXGsUtGtQupFeSR+nV0h9buaL+6A=',
+// })
+
+let productService = new GetProduct(config)
+
+// productService.getProduct({
+//   partnerCode: '0912345331',
+//   categoryID: '114',
+//   productID: '89',
+//   productAmount: '',
+//   customerID: '',
+//   partnerTransID: '20210415101454468',
+//   partnerTransDate: '20210415101454',
+//   data: '',
+//   dataSign: '',
+//   // dataSign:
+//   //   'eDrxAtajlVJk4PJlrLXAnp4n8ausi4J3sfFakFBdlik1IRrHFSAfeQLeGl4kKbBWg5+OhGyXgjRUEJAE/FQEZ676LDl7fDssDC+W/fAhly7t72oxd6hVBImwDm1Pf2CyQ5ontaTLpu631Jm/v4VzN76dRJwxQ7RAyGz+VbxE828=',
+// })
+
+let balanceService = new GetBalance(config)
+
+balanceService.getBalance({
   partnerCode: '0912345331',
-  categoryID: '235',
+  categoryID: '',
   productID: '',
   productAmount: '',
   customerID: '',
-  partnerTransID: '20210405090435641',
-  partnerTransDate: '20210405090435',
+  partnerTransID: '20210415101454196',
+  partnerTransDate: '20210415101454',
   data: '',
   dataSign: '',
-  // dataSign:
-  //   'at1l9ktAv4EQVuzoMj78KCwPg66jYCdLHEphcUFFD1E9R0IQCXYiVqdeyWS2Chv3275beLQzO13b7dCRkczucEOVQJeW09yoeXNup77QY08SH7gmo/vHbw9J/YFS5skocqa8nxrhRq3sZSqkXGsUtGtQupFeSR+nV0h9buaL+6A=',
+  // dataSign: "EX+C4RyI2dU7AKO6WIPE3Bwg/JI6H3vAdgTrpokAt0tPMHDKhdoMC1jZffu0yckeQ+kuAkFW0TrLZ8L6/2lmC22JMDPOLXl60DpnNZT6kX1y7WOo3Aolf1uEaDiKPf0F6Xi8+8hn4vCxJ+OtUhKRATf1RFIjG+xiCQKNIbD+HgE="
 })
