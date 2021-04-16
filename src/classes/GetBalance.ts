@@ -56,8 +56,8 @@ export class GetBalance {
         response.data.dataInfo = dataInfoDecode
       }
 
-      console.log('get Category VTC response: ', response.data)
-      console.log('get Category VTC status: ', response.status)
+      console.log('get Balance VTC response: ', response.data)
+      console.log('get Balance VTC status: ', response.status)
 
       return {
         data: response.data.dataInfo,
@@ -65,7 +65,7 @@ export class GetBalance {
       }
     } catch (error) {
       if (error.response) {
-        console.log('get Category VTC response = ', error.response.data)
+        console.log('get Balance VTC response = ', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -79,7 +79,7 @@ export class GetBalance {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('get Category VTC Error message = ', error.message)
+        console.log('get Balance VTC Error message = ', error.message)
         return {
           message: error.message,
         }
