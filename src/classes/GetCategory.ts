@@ -68,7 +68,7 @@ export class GetCategory {
       console.log('get Category VTC status: ', response.status)
 
       return {
-        data: response.data.dataInfo,
+        data: response.data,
         status: response.status,
       }
     } catch (error) {

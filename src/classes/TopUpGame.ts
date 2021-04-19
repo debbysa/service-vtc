@@ -4,14 +4,14 @@ import { Config } from './Config'
 import { ConfigDataInfo } from './ConfigDataInfo'
 import { ConfigDataSign } from './ConfigDataSign'
 
-export class TopUpMobile {
+export class TopUpGame {
   private cfg: Config
 
   constructor(config: Config) {
     this.cfg = config
   }
 
-  payTopUpMobile = async (data: IGetCategory) => {
+  payTopUpGame = async (data: IGetCategory) => {
     const combinedParams =
       data.partnerCode +
       '|' +
@@ -45,7 +45,7 @@ export class TopUpMobile {
     }
 
     try {
-      const response = await axios.post(this.cfg.domain_url + '/share/Pay/topup-mobile', data, {
+      const response = await axios.post(this.cfg.domain_url + '/share/Pay/topup-game', data, {
         headers,
       })
 
@@ -56,8 +56,8 @@ export class TopUpMobile {
         response.data.dataInfo = dataInfoDecode
       }
 
-      console.log('top up VTC response: ', response.data)
-      console.log('top up VTC status: ', response.status)
+      console.log('top up game VTC response: ', response.data)
+      console.log('top up game VTC status: ', response.status)
 
       return {
         data: response.data,
@@ -65,7 +65,7 @@ export class TopUpMobile {
       }
     } catch (error) {
       if (error.response) {
-        console.log('top up VTC response = ', error.response.data)
+        console.log('top up game VTC response = ', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -79,7 +79,7 @@ export class TopUpMobile {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('top up VTC Error message = ', error.message)
+        console.log('top up game VTC Error message = ', error.message)
         return {
           message: error.message,
         }

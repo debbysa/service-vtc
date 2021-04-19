@@ -60,7 +60,7 @@ export class GetBalance {
       console.log('get Balance VTC status: ', response.status)
 
       return {
-        data: response.data.dataInfo,
+        data: response.data,
         status: response.status,
       }
     } catch (error) {
