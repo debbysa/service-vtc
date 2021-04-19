@@ -1,4 +1,6 @@
 import { Config } from './classes/Config'
+import { ConfigDataInfo } from './classes/ConfigDataInfo'
+import { ConfigDataSign } from './classes/ConfigDataSign'
 import { GetAllCategory } from './classes/GetAllCategory'
 import { GetCategory } from './classes/GetCategory'
 import { GetProduct } from './classes/GetProduct'
@@ -11,6 +13,8 @@ import { IGetCategory } from './interfaces/requestvtc.interface'
 
 export {
   Config,
+  ConfigDataInfo,
+  ConfigDataSign,
   GetAllCategory,
   GetCategory,
   GetProduct,

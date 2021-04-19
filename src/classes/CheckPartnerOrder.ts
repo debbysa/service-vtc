@@ -64,7 +64,7 @@ export class CheckPartnerOrder {
       console.log('check partner order VTC status: ', response.status)
 
       return {
-        data: response.data.dataInfo,
+        data: response.data,
         status: response.status,
       }
     } catch (error) {
