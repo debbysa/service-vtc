@@ -11,6 +11,10 @@ export class Config {
     return this.private_key
   }
 
+  get getPublicKey() {
+    return this.public_key
+  }
+
   constructor(domain_url: string, private_key: string, public_key: string) {
     this.domain_url = domain_url
     this.private_key = private_key
