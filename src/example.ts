@@ -26,7 +26,12 @@ let config = new Config(
     '5KkJzRYrFO68t7Zd7pUtqQKBQN6AkvyrvhqPvIPWndQ289y516hvc0B5Sel1qzz6\n' +
     'gdzUxXbJxMzzxhGOJdTBaMMq9PiAoSMIRoL34QXI+XDEnKM=\n' +
     '-----END RSA PRIVATE KEY-----',
-  process.env.PUBLICKEY || ''
+  '-----BEGIN PUBLIC KEY-----' +
+    'MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgIrlvOvqOTJgVmgVuv5GVSi30buj\n' +
+    'cBuCAdV1SM51G0wlBq5Bj1VNYmu+kmV0tvxW8OHhQPcivAHauGUJ+GTucPAAf2Qw\n' +
+    'bmGSqJ4Q59b7rh9DtzRDsbAd9It9XBBM91XndWDXAgsovgUaQBAJ85rRqTgNLVUS\n' +
+    '90Lu18G1a9m5bR79AgMBAAE=\n' +
+    '-----END PUBLIC KEY-----'
 )
 
 let allCategoryService = new GetAllCategory(config)
@@ -100,7 +105,7 @@ let topUpMobileService = new TopUpMobile(config)
 //   productID: '25',
 //   productAmount: '10000',
 //   customerID: '0912333212',
-//   partnerTransID: 'F10B255A',
+//   partnerTransID: 'F10B255B',
 //   partnerTransDate: '20210405101235',
 //   data: '',
 //   dataSign: '',
@@ -116,7 +121,7 @@ let checkPartnerOrderService = new CheckPartnerOrder(config)
 //   productID: '',
 //   productAmount: '',
 //   customerID: '',
-//   partnerTransID: 'F10B255A',
+//   partnerTransID: 'F10B255B',
 //   partnerTransDate: '20210405101249',
 //   data: '',
 //   dataSign: '',
@@ -135,8 +140,7 @@ let checkBillInfoService = new CheckBillInfo(config)
 //   partnerTransID: '20210405090435666',
 //   partnerTransDate: '20210405101250',
 //   data: '',
-//   dataSign:
-//     'GuaNhFlDtEBju+w6KwQiVRI173AT2BdPlP4DNCv2GI6id6ZXOcNc9xvcFgMW1F6mDWBy96notctP/W7XFSyabyrt4JQIghrYazcwVv4trcF0pTs7CxOExME2xfZ41ptLv6jfmrp679om1goHiNJww2b6Sh+nMGw9Tt6XKNUAgkU=',
+//   dataSign: '',
 // })
 
 let payBillService = new PayBill(config)
@@ -147,7 +151,7 @@ let payBillService = new PayBill(config)
 //   productID: '10141',
 //   productAmount: '250000',
 //   customerID: 'ACS123456',
-//   partnerTransID: '20210405090435666',
+//   partnerTransID: '20210405101235',
 //   partnerTransDate: '20210405101250',
 //   data: '13579888',
 //   dataSign: '',
@@ -163,7 +167,7 @@ topUpGameService.payTopUpGame({
   productID: '211',
   productAmount: '10000',
   customerID: 'vtctest01',
-  partnerTransID: '20210419100619499',
+  partnerTransID: '20210419100619145',
   partnerTransDate: '20210419100619',
   data: '',
   dataSign: '',

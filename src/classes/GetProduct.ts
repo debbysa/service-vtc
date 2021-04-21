@@ -3,6 +3,7 @@ import { IGetCategory } from '../interfaces/requestvtc.interface'
 import { Config } from './Config'
 import { ConfigDataInfo } from './ConfigDataInfo'
 import { ConfigDataSign } from './ConfigDataSign'
+import { VerifyDataSign } from './VerifyDataSign'
 
 export class GetProduct {
   private cfg: Config
@@ -49,20 +50,68 @@ export class GetProduct {
         headers,
       })
 
-      if (response.data.dataInfo) {
-        let dataInfoConfig = new ConfigDataInfo()
-        let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
-        console.log(dataInfoDecode)
-        response.data.dataInfo = dataInfoDecode
+      if (response.data.dataSign === '') {
+        console.log('get product VTC response: ', response.data)
+        console.log('get product VTC status: ', response.status)
+        return {
+          data: response.data,
+          status: response.status,
+        }
+      } else {
+        const combinedParamsResponse =
+          response.data.responseCode +
+          '|' +
+          response.data.status +
+          '|' +
+          response.data.partnerTransID +
+          '|' +
+          response.data.description +
+          // '|' +
+          // response.data.balance +
+          '|' +
+          response.data.dataInfo
+
+        let verifyDataSignFromVTC = new VerifyDataSign()
+        let { message } = verifyDataSignFromVTC.verifyDataSign({
+          combinedParamsResponse,
+          dataSign: response.data.dataSign,
+          publicKey: this.cfg.getPublicKey.toString(),
+        })
+
+        if (response.data.dataInfo) {
+          let dataInfoConfig = new ConfigDataInfo()
+          let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
+          // console.log(dataInfoDecode)
+          response.data.dataInfo = dataInfoDecode
+        }
+
+        console.log('verify dataSign: ', message)
+        console.log('get product VTC response: ', response.data)
+        console.log('get product VTC status: ', response.status)
+
+        // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
+        if (message === true) {
+          return {
+            message: 'signature VALID',
+            data: response.data,
+            status: true,
+          }
+        } else {
+          return {
+            message: 'signature NOT VALID',
+            data: response.data,
+            status: false,
+          }
+        }
       }
 
-      console.log('get product VTC response: ', response.data)
-      console.log('get product VTC status: ', response.status)
+      // console.log('get product VTC response: ', response.data)
+      // console.log('get product VTC status: ', response.status)
 
-      return {
-        data: response.data,
-        status: response.status,
-      }
+      // return {
+      //   data: response.data,
+      //   status: response.status,
+      // }
     } catch (error) {
       if (error.response) {
         console.log('get product VTC response = ', error.response.data)

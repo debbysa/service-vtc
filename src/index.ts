@@ -10,6 +10,8 @@ import { CheckPartnerOrder } from './classes/CheckPartnerOrder'
 import { CheckBillInfo } from './classes/CheckBillInfo'
 import { PayBill } from './classes/PayBill'
 import { IGetCategory } from './interfaces/requestvtc.interface'
+import { IGetDataSign } from './interfaces/requestvtc.interface'
+import { IVerifyDataSign } from './interfaces/requestvtc.interface'
 
 export {
   Config,
@@ -25,4 +27,6 @@ export {
   PayBill,
   // interface
   IGetCategory,
+  IGetDataSign,
+  IVerifyDataSign,
 }

@@ -3,6 +3,7 @@ import { Config } from './Config'
 import { IGetCategory } from '../interfaces/requestvtc.interface'
 import { ConfigDataSign } from './ConfigDataSign'
 import { ConfigDataInfo } from './ConfigDataInfo'
+import { VerifyDataSign } from './VerifyDataSign'
 
 export class GetCategory {
   private cfg: Config
@@ -29,7 +30,7 @@ export class GetCategory {
       '|' +
       data.data
 
-    console.log(this.cfg.getPrivateKey)
+    // console.log(this.cfg.getPrivateKey)
 
     let encodeDataSign = new ConfigDataSign()
 
@@ -51,26 +52,65 @@ export class GetCategory {
         headers,
       })
 
-      //   let dataInfoDecode = ''
-      if (response.data.dataInfo) {
-        let dataInfoConfig = new ConfigDataInfo()
-        let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
-        console.log(dataInfoDecode)
-        response.data.dataInfo = dataInfoDecode
-        // console.log('lalalalal')
-        // const dataInfoBase64 = cryptoJs.enc.Base64.parse(response.data.dataInfo)
-        // dataInfoDecode = cryptoJs.enc.Utf8.stringify(dataInfoBase64)
-        // // console.log(dataInfoDecode)
-        // response.data.dataInfo = JSON.parse(dataInfoDecode)
+      if (response.data.dataSign === '') {
+        console.log('get Category VTC response: ', response.data)
+        console.log('get Category VTC status: ', response.status)
+        return {
+          data: response.data,
+          status: response.status,
+        }
+      } else {
+        const combinedParamsResponse =
+          response.data.responseCode +
+          '|' +
+          response.data.status +
+          '|' +
+          response.data.partnerTransID +
+          '|' +
+          response.data.description +
+          // '|' +
+          // response.data.balance +
+          '|' +
+          response.data.dataInfo
+
+        let verifyDataSignFromVTC = new VerifyDataSign()
+        let { message } = verifyDataSignFromVTC.verifyDataSign({
+          combinedParamsResponse,
+          dataSign: response.data.dataSign,
+          publicKey: this.cfg.getPublicKey.toString(),
+        })
+
+        if (response.data.dataInfo) {
+          let dataInfoConfig = new ConfigDataInfo()
+          let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
+          // console.log(dataInfoDecode)
+          response.data.dataInfo = dataInfoDecode
+        }
+
+        console.log('verify dataSign: ', message)
+        console.log('get Category VTC response: ', response.data)
+        console.log('get Category VTC status: ', response.status)
+
+        // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
+        if (message === true) {
+          return {
+            message: 'signature VALID',
+            data: response.data,
+            status: true,
+          }
+        } else {
+          return {
+            message: 'signature NOT VALID',
+            data: response.data,
+            status: false,
+          }
+        }
       }
 
-      console.log('get Category VTC response: ', response.data)
-      console.log('get Category VTC status: ', response.status)
-
-      return {
-        data: response.data,
-        status: response.status,
-      }
+      // return {
+      //   data: response.data,
+      //   status: response.status,
+      // }
     } catch (error) {
       if (error.response) {
         console.log('get Category VTC response = ', error.response.data)

@@ -14,3 +14,9 @@ export interface IGetDataSign {
   privateKey: string
   combinedParams: string
 }
+
+export interface IVerifyDataSign {
+  combinedParamsResponse: string
+  dataSign: string
+  publicKey: string
+}
