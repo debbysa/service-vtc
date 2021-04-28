@@ -2,14 +2,19 @@
   "name": "service-vtc",
   "version": "1.0.0",
   "description": "This is a service to access api from VTC Vietnam",
-  "main": "index.js",
+  "main": "./build/index.js",
+  "types": "./build/index.d.ts",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node ./build/example.js",
     "build": "tsc --build",
     "dev": "tsnd --respawn ./src/example.ts"
   },
-  "author": "",
+  "author": {
+    "name": "debbysa",
+    "email": "deby.silviaagnes@gmail.com",
+    "url": "https://github.com/debbysa"
+  },
   "license": "MIT",
   "devDependencies": {
     "@types/crypto-js": "^4.0.1",
@@ -26,5 +31,14 @@
     "express": "^4.17.1",
     "jsrsasign": "^10.1.13",
     "ts-node-dev": "^1.1.6"
-  }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/debbysa/service-vtc.git"
+  },
+  "keywords": [],
+  "bugs": {
+    "url": "https://github.com/debbysa/service-vtc/issues"
+  },
+  "homepage": "https://github.com/debbysa/service-vtc#readme"
 }
