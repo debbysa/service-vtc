@@ -1,8 +1,11 @@
+import { BuyCard } from './classes/BuyCard'
 import { CheckBillInfo } from './classes/CheckBillInfo'
 import { CheckPartnerOrder } from './classes/CheckPartnerOrder'
 import { Config } from './classes/Config'
 import { GetAllCategory } from './classes/GetAllCategory'
 import { GetBalance } from './classes/GetBalance'
+import { GetCardData } from './classes/GetCardData'
+import { GetCardQuantity } from './classes/GetCardQuantity'
 import { GetCategory } from './classes/GetCategory'
 import { GetProduct } from './classes/GetProduct'
 import { PayBill } from './classes/PayBill'
@@ -161,16 +164,59 @@ let payBillService = new PayBill(config)
 
 let topUpGameService = new TopUpGame(config)
 
-topUpGameService.payTopUpGame({
+// topUpGameService.payTopUpGame({
+//   partnerCode: '0912345331',
+//   categoryID: '115',
+//   productID: '211',
+//   productAmount: '10000',
+//   customerID: 'vtctest01',
+//   partnerTransID: '20210419100619145',
+//   partnerTransDate: '20210419100619',
+//   data: '',
+//   dataSign: '',
+//   // dataSign:
+//   //   'VVhmoJxIUf6ftAFXK/BYfJ16hxpJPObeiTAa5K2O7hZGmEQFWrgFLxQWD6QF8RyRZU0AQGN48oWahG1kAB4WhOOZexuaagtFeI2FE8Ewq1qGZrabOQj+LnaCj5y+4bjCLFi5bSRPb/h0yOUylf1T0L521Z6A6e/r47RQ3HfdhYs=',
+// })
+
+let getCardDataService = new GetCardData(config)
+
+// getCardDataService.getCardData({
+//   partnerCode: '0912345331',
+//   categoryID: '0',
+//   productID: '0',
+//   productAmount: '0',
+//   customerID: '20200804141823426',
+//   partnerTransID: '20210427130218809',
+//   partnerTransDate: '20210427130218',
+//   data: '355740',
+//   dataSign:
+//     'Frlh0SeGB8mmM4rcd+xu+svmCv/FcVyKACDOKcoOeAY/14g3jhq/Y95C3Qnb9kzzNX0ZElkofd2GSCO5P6BwToeRrIl76DJRQL6/jIp7KFSkVOFuaplv+byXEwwKir4bL5pVN2ZZSnKWF5KpILbkgNDMXxkjNcis9ZSjC+ERqnc=',
+// })
+
+let getCardQuantityService = new GetCardQuantity(config)
+
+// getCardQuantityService.getCardQuantityData({
+//   partnerCode: '0912345331',
+//   categoryID: '114',
+//   productID: '',
+//   productAmount: '',
+//   customerID: '',
+//   partnerTransID: '20210427130218857',
+//   partnerTransDate: '20210427130218',
+//   data: '',
+//   dataSign: '',
+// })
+
+let buyCardService = new BuyCard(config)
+
+buyCardService.buyCard({
   partnerCode: '0912345331',
-  categoryID: '115',
-  productID: '211',
-  productAmount: '10000',
-  customerID: 'vtctest01',
-  partnerTransID: '20210419100619145',
-  partnerTransDate: '20210419100619',
-  data: '',
+  categoryID: '114',
+  productID: '91',
+  productAmount: '100000',
+  customerID: '',
+  partnerTransID: '20210427130218345',
+  partnerTransDate: '20210427130218',
+  data: '1',
   dataSign: '',
-  // dataSign:
-  //   'VVhmoJxIUf6ftAFXK/BYfJ16hxpJPObeiTAa5K2O7hZGmEQFWrgFLxQWD6QF8RyRZU0AQGN48oWahG1kAB4WhOOZexuaagtFeI2FE8Ewq1qGZrabOQj+LnaCj5y+4bjCLFi5bSRPb/h0yOUylf1T0L521Z6A6e/r47RQ3HfdhYs=',
 })
