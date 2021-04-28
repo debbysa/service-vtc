@@ -62,7 +62,7 @@ const {
 
 ## Quick Start
 
-This is example to implement service-billfazz in Javascript:
+This is example to implement service-vtc in Javascript:
 
 ```bash
 const {
@@ -99,3 +99,5 @@ const balanceService = new GetBalance(config)
 // get balance
 balanceService.getBalance()
 ```
+
+Note : private_key and public_key must be string
