@@ -91,7 +91,8 @@ const {
 const config = new Config(
     "domain_url",
     "private_key",
-    "public_key")
+    "public_key",
+    "tripledes_key")
 
 // using endpoint of balance
 const balanceService = new GetBalance(config)
@@ -100,4 +101,4 @@ const balanceService = new GetBalance(config)
 balanceService.getBalance()
 ```
 
-Note : private_key and public_key must be string
+Note : private_key, public_key, and tripledes_key must be string
