@@ -20,3 +20,8 @@ export interface IVerifyDataSign {
   dataSign: string
   publicKey: string
 }
+
+export interface IverifyDataInfo {
+  dataInfo: string
+  tripleDesKey: string
+}

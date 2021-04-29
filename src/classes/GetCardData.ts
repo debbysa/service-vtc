@@ -78,7 +78,10 @@ export class GetCardData {
 
         if (response.data.dataInfo) {
           let dataInfoConfig = new VerifyDataInfo()
-          let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
+          let dataInfoDecode = dataInfoConfig.getDataInfo({
+            dataInfo: response.data.dataInfo,
+            tripleDesKey: this.cfg.getTripleDesKey.toString(),
+          })
           console.log(dataInfoDecode)
           response.data.dataInfo = dataInfoDecode
         }

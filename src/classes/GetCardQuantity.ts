@@ -81,10 +81,6 @@ export class GetCardQuantity {
         })
 
         if (response.data.dataInfo) {
-          //   let dataInfoConfig = new VerifyDataInfo()
-          //   let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
-          //   console.log(dataInfoDecode)
-          //   response.data.dataInfo = dataInfoDecode
           let dataInfoConfig = new ConfigDataInfo()
           let dataInfoDecode = dataInfoConfig.getDataInfo(response.data.dataInfo)
           // console.log(dataInfoDecode)
