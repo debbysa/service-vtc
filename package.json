@@ -1,6 +1,6 @@
 {
   "name": "service-vtc",
-  "version": "1.0.3",
+  "version": "2.0.0",
   "description": "This is a service to access api from VTC Vietnam",
   "main": "./build/index.js",
   "types": "./build/index.d.ts",
