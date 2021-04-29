@@ -8,6 +8,7 @@ import { GetCardData } from './classes/GetCardData'
 import { GetCardQuantity } from './classes/GetCardQuantity'
 import { GetCategory } from './classes/GetCategory'
 import { GetProduct } from './classes/GetProduct'
+import { GetTelcoPromotions } from './classes/GetTelcoPromotions'
 import { PayBill } from './classes/PayBill'
 import { TopUpGame } from './classes/TopUpGame'
 import { TopUpMobile } from './classes/TopUpMobile'
@@ -34,7 +35,8 @@ let config = new Config(
     'cBuCAdV1SM51G0wlBq5Bj1VNYmu+kmV0tvxW8OHhQPcivAHauGUJ+GTucPAAf2Qw\n' +
     'bmGSqJ4Q59b7rh9DtzRDsbAd9It9XBBM91XndWDXAgsovgUaQBAJ85rRqTgNLVUS\n' +
     '90Lu18G1a9m5bR79AgMBAAE=\n' +
-    '-----END PUBLIC KEY-----'
+    '-----END PUBLIC KEY-----',
+  'ff39fc173e7ed3c35e01d139e6042e64'
 )
 
 let allCategoryService = new GetAllCategory(config)
@@ -209,14 +211,29 @@ let getCardQuantityService = new GetCardQuantity(config)
 
 let buyCardService = new BuyCard(config)
 
-buyCardService.buyCard({
-  partnerCode: '0912345331',
-  categoryID: '114',
-  productID: '91',
-  productAmount: '100000',
-  customerID: '',
-  partnerTransID: '20210427130218345',
-  partnerTransDate: '20210427130218',
-  data: '1',
-  dataSign: '',
-})
+// buyCardService.buyCard({
+//   partnerCode: '0912345331',
+//   categoryID: '114',
+//   productID: '91',
+//   productAmount: '10000',
+//   customerID: '',
+//   partnerTransID: '20210427130218776',
+//   partnerTransDate: '20210427130218',
+//   data: '1',
+//   dataSign: '',
+// })
+
+let getTelcoPromotionsService = new GetTelcoPromotions(config)
+
+// getTelcoPromotionsService.getTelcoPromotions({
+//   partnerCode: '0912345331',
+//   categoryID: '0',
+//   productID: '0',
+//   productAmount: '0',
+//   customerID: '',
+//   partnerTransID: '20210429101226644',
+//   partnerTransDate: '20210429101226',
+//   data: '',
+//   dataSign:
+//     'hg7N96JpZkXDR585NEWbCzU+VwXR0pfA7fvEcOw22yJON2PFM+H9KwZYJZFS+iLVRCIUuxs8tn7tc3bHNjT556CQ+inniSOV/jYhW/oCL7QoJTltGadxyd8rIwO+qDUN4WhE3Zw5+4GiVs5tmy0SuMNYOWkdjgxu8cJX0yqb3Cc=',
+// })
