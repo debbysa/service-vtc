@@ -39,7 +39,7 @@ export class TopUpGame {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -51,8 +51,8 @@ export class TopUpGame {
       })
 
       if (response.data.dataSign === '') {
-        console.log('top up game VTC response: ', response.data)
-        console.log('top up game VTC status: ', response.status)
+        // console.log('top up game VTC response: ', response.data)
+        // console.log('top up game VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -86,8 +86,8 @@ export class TopUpGame {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('top up game VTC response: ', response.data)
-        console.log('top up game VTC status: ', response.status)
+        // console.log('top up game VTC response: ', response.data)
+        // console.log('top up game VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -114,7 +114,7 @@ export class TopUpGame {
       // }
     } catch (error) {
       if (error.response) {
-        console.log('top up game VTC response = ', error.response.data)
+        console.log('topupGame VTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -128,7 +128,7 @@ export class TopUpGame {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('top up game VTC Error message = ', error.message)
+        console.log('topupGame VTC Error message = \n', error.message)
         return {
           message: error.message,
         }

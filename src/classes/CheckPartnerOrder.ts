@@ -39,7 +39,7 @@ export class CheckPartnerOrder {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -55,8 +55,8 @@ export class CheckPartnerOrder {
       )
 
       if (response.data.dataSign === '') {
-        console.log('check partner order VTC response: ', response.data)
-        console.log('check partner order VTC status: ', response.status)
+        // console.log('check partner order VTC response: ', response.data)
+        // console.log('check partner order VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -90,8 +90,8 @@ export class CheckPartnerOrder {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('check partner order VTC response: ', response.data)
-        console.log('check partner order VTC status: ', response.status)
+        // console.log('check partner order VTC response: ', response.data)
+        // console.log('check partner order VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -118,7 +118,7 @@ export class CheckPartnerOrder {
       // }
     } catch (error) {
       if (error.response) {
-        console.log('check partner order VTC response = ', error.response.data)
+        console.log('checkPartnerOrder VTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -132,7 +132,7 @@ export class CheckPartnerOrder {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('check partner order VTC Error message = ', error.message)
+        console.log('checkPartnerOrder VTC Error message = \n', error.message)
         return {
           message: error.message,
         }

@@ -41,7 +41,7 @@ export class GetCategory {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -53,8 +53,8 @@ export class GetCategory {
       })
 
       if (response.data.dataSign === '') {
-        console.log('get Category VTC response: ', response.data)
-        console.log('get Category VTC status: ', response.status)
+        // console.log('get Category VTC response: ', response.data)
+        // console.log('get Category VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -88,8 +88,8 @@ export class GetCategory {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('get Category VTC response: ', response.data)
-        console.log('get Category VTC status: ', response.status)
+        // console.log('get Category VTC response: ', response.data)
+        // console.log('get Category VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -113,7 +113,7 @@ export class GetCategory {
       // }
     } catch (error) {
       if (error.response) {
-        console.log('get Category VTC response = ', error.response.data)
+        console.log('getCategoryVTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -127,7 +127,7 @@ export class GetCategory {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('get Category VTC Error message = ', error.message)
+        console.log('getCategoryVTC Error message = \n', error.message)
         return {
           message: error.message,
         }

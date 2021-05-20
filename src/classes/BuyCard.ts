@@ -39,7 +39,7 @@ export class BuyCard {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -51,8 +51,8 @@ export class BuyCard {
       })
 
       if (response.data.dataSign === '') {
-        console.log('get carddata VTC response: ', response.data)
-        console.log('get carddata VTC status: ', response.status)
+        // console.log('get carddata VTC response: ', response.data)
+        // console.log('get carddata VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -87,8 +87,8 @@ export class BuyCard {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('get buy card VTC response: ', response.data)
-        console.log('get buy card VTC status: ', response.status)
+        // console.log('get buy card VTC response: ', response.data)
+        // console.log('get buy card VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -107,7 +107,7 @@ export class BuyCard {
       }
     } catch (error) {
       if (error.response) {
-        console.log('get buy card VTC response = ', error.response.data)
+        console.log('get buyCard VTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -121,7 +121,7 @@ export class BuyCard {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('get buy card VTC Error message = ', error.message)
+        console.log('get buyCard VTC Error message = \n', error.message)
         return {
           message: error.message,
         }

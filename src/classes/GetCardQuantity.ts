@@ -39,7 +39,7 @@ export class GetCardQuantity {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -55,8 +55,8 @@ export class GetCardQuantity {
       )
 
       if (response.data.dataSign === '') {
-        console.log('get card quantity VTC response: ', response.data)
-        console.log('get card quantity VTC status: ', response.status)
+        // console.log('get card quantity VTC response: ', response.data)
+        // console.log('get card quantity VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -88,8 +88,8 @@ export class GetCardQuantity {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('get card quantity VTC response: ', response.data)
-        console.log('get card quantity VTC status: ', response.status)
+        // console.log('get card quantity VTC response: ', response.data)
+        // console.log('get card quantity VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -108,7 +108,7 @@ export class GetCardQuantity {
       }
     } catch (error) {
       if (error.response) {
-        console.log('get card quantity VTC response = ', error.response.data)
+        console.log('getCardQuantity VTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -122,7 +122,7 @@ export class GetCardQuantity {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('get card quantity VTC Error message = ', error.message)
+        console.log('getCardQuantity VTC Error message = \n', error.message)
         return {
           message: error.message,
         }

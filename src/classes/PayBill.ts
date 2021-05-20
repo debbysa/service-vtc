@@ -39,7 +39,7 @@ export class PayBill {
 
     data.dataSign = dataSignBase64
 
-    console.log('value dataSign: ', data.dataSign)
+    // console.log('value dataSign: ', data.dataSign)
 
     let headers = {
       'Content-Type': 'application/json',
@@ -51,8 +51,8 @@ export class PayBill {
       })
 
       if (response.data.dataSign === '') {
-        console.log('pay bill VTC response: ', response.data)
-        console.log('pay bill VTC status: ', response.status)
+        // console.log('pay bill VTC response: ', response.data)
+        // console.log('pay bill VTC status: ', response.status)
         return {
           data: response.data,
           status: response.status,
@@ -86,8 +86,8 @@ export class PayBill {
         }
 
         console.log('verify dataSign: ', message)
-        console.log('pay bill VTC response: ', response.data)
-        console.log('pay bill VTC status: ', response.status)
+        // console.log('pay bill VTC response: ', response.data)
+        // console.log('pay bill VTC status: ', response.status)
 
         // pake IF aja, nanti kalo sign invalid -> status = FALSE, kalo valid -> TRUE
         if (message === true) {
@@ -106,7 +106,7 @@ export class PayBill {
       }
     } catch (error) {
       if (error.response) {
-        console.log('pay bill VTC response = ', error.response.data)
+        console.log('payBill VTC response = \n', error.response.data)
         console.log('status error = ', error.response.status)
         return {
           status: error.response.status,
@@ -120,7 +120,7 @@ export class PayBill {
         }
       } else {
         // Something happened in setting up the request that triggered an Error
-        console.log('pay bill VTC Error message = ', error.message)
+        console.log('payBill VTC Error message = \n', error.message)
         return {
           message: error.message,
         }
