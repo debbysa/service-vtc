@@ -13,6 +13,7 @@ import { PayBill } from './classes/PayBill'
 import { TopUpGame } from './classes/TopUpGame'
 import { TopUpMobile } from './classes/TopUpMobile'
 
+// this is just example
 let config = new Config('', '', '', '')
 
 let allCategoryService = new GetAllCategory(config)

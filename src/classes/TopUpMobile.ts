@@ -107,11 +107,6 @@ export class TopUpMobile {
 
       // console.log('top up VTC response: ', response.data)
       // console.log('top up VTC status: ', response.status)
-
-      // return {
-      //   data: response.data,
-      //   status: response.status,
-      // }
     } catch (error) {
       if (error.response) {
         console.log('topupMobile VTC response = \n', error.response.data)
