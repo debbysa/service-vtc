@@ -13,31 +13,7 @@ import { PayBill } from './classes/PayBill'
 import { TopUpGame } from './classes/TopUpGame'
 import { TopUpMobile } from './classes/TopUpMobile'
 
-let config = new Config(
-  'http://117.103.207.81:8080',
-  '-----BEGIN RSA PRIVATE KEY-----' +
-    'MIICXwKBAQACgYCz1KYAjrTIEMcxwPxBYtff8eN0rOd8MbwxFTMtlgQKGJTpq4FE\n' +
-    'OADieykfqA/DdWx20wnwUrzHQDO32F9fqk1628WK9nAQcqDOj4A+/+t5Jo66Sqtw\n' +
-    '4kd2UE/NmXGN516uSeENA+pQzDRyO9JWAUc/4fC9/IQL5Kz4780/BbFfZwKBAwEA\n' +
-    'AQKBgBFFls4N5soiZmdecDv9eNtu+ZgutSsGAdu6/AfgVTH9C2xoBwnc0STvjFMY\n' +
-    'iq8Mu6ar/VPiNnRys6TwOLTRABDn0PnFuQfIZKg/cDEeU85WPA7vkjx+xethT9t/\n' +
-    'PHMRFCbzXHF6jqd5gHDY/icZqjuTAePJzRgC26z5FMyxmm6JAoFA7pz2ZP2DMRhC\n' +
-    'DtlZwfyQW5WhCitMes5Iw/k9mz5x7KgRKQANuUOph9uSp8bEpu/2bfEu5AKp5jqL\n' +
-    '0p55s4cTWQKBQMDvK6Fgwhw9taMFWakFg/LqaOEfFFv8x/wXPxNKGJpBKAmpD8Na\n' +
-    '/Blh3h3q/KtSlGtWQZxdHMZa2CC1vqercL8CgUAYv0S6sqRBmj93pMkvWk9qgDlE\n' +
-    'gbsb3XskgBwIltBf+ApXkz7ZIRBbG8W5Ct9oZOjM/D+dvDz8uMO5o2AB45d5AoFA\n' +
-    'H2fPRlmlv0scQgkg6y6GqAgYQmz4t3CSbSqrjcxF7PYmOkxW0IoC927C5UPXFVw/\n' +
-    '5KkJzRYrFO68t7Zd7pUtqQKBQN6AkvyrvhqPvIPWndQ289y516hvc0B5Sel1qzz6\n' +
-    'gdzUxXbJxMzzxhGOJdTBaMMq9PiAoSMIRoL34QXI+XDEnKM=\n' +
-    '-----END RSA PRIVATE KEY-----',
-  '-----BEGIN PUBLIC KEY-----' +
-    'MIGeMA0GCSqGSIb3DQEBAQUAA4GMADCBiAKBgIrlvOvqOTJgVmgVuv5GVSi30buj\n' +
-    'cBuCAdV1SM51G0wlBq5Bj1VNYmu+kmV0tvxW8OHhQPcivAHauGUJ+GTucPAAf2Qw\n' +
-    'bmGSqJ4Q59b7rh9DtzRDsbAd9It9XBBM91XndWDXAgsovgUaQBAJ85rRqTgNLVUS\n' +
-    '90Lu18G1a9m5bR79AgMBAAE=\n' +
-    '-----END PUBLIC KEY-----',
-  'ff39fc173e7ed3c35e01d139e6042e64'
-)
+let config = new Config('', '', '', '')
 
 let allCategoryService = new GetAllCategory(config)
 
@@ -51,15 +27,13 @@ let allCategoryService = new GetAllCategory(config)
 //   partnerTransDate: '20210405101235',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'Nx96XSp8MFw118f37bfn2o5cn+1smfMbS0MNTAk9q2kYFXx6EeZgqEXLFdh9KbUZX+Cd6HBAOC1rRfpqfqVO3dj6I7bWOr+hBXG0DB27BlfavJj4RkHBWZ2xGb0ZpXOc+UkmTKXOmW4w42QefHISoZe+IaOVV3SV+NgGY7VWEG4=',
 // })
 
 let categoryService = new GetCategory(config)
 
 // categoryService.getCategory({
 //   partnerCode: '0912345331',
-//   categoryID: '235',
+//   categoryID: '161',
 //   productID: '',
 //   productAmount: '',
 //   customerID: '',
@@ -67,24 +41,20 @@ let categoryService = new GetCategory(config)
 //   partnerTransDate: '20210405090435',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'at1l9ktAv4EQVuzoMj78KCwPg66jYCdLHEphcUFFD1E9R0IQCXYiVqdeyWS2Chv3275beLQzO13b7dCRkczucEOVQJeW09yoeXNup77QY08SH7gmo/vHbw9J/YFS5skocqa8nxrhRq3sZSqkXGsUtGtQupFeSR+nV0h9buaL+6A=',
 // })
 
 let productService = new GetProduct(config)
 
 // productService.getProduct({
 //   partnerCode: '0912345331',
-//   categoryID: '114',
-//   productID: '89',
-//   productAmount: '',
+//   categoryID: '177',
+//   productID: '238',
+//   productAmount: '100000',
 //   customerID: '',
-//   partnerTransID: '20210415101454468',
-//   partnerTransDate: '20210415101454',
+//   partnerTransID: '84af774ca3d5-4a09-bd4d-a347ad5dd6b9',
+//   partnerTransDate: '20210518141432',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'eDrxAtajlVJk4PJlrLXAnp4n8ausi4J3sfFakFBdlik1IRrHFSAfeQLeGl4kKbBWg5+OhGyXgjRUEJAE/FQEZ676LDl7fDssDC+W/fAhly7t72oxd6hVBImwDm1Pf2CyQ5ontaTLpu631Jm/v4VzN76dRJwxQ7RAyGz+VbxE828=',
 // })
 
 let balanceService = new GetBalance(config)
@@ -106,16 +76,14 @@ let topUpMobileService = new TopUpMobile(config)
 
 // topUpMobileService.payTopUpMobile({
 //   partnerCode: '0912345331',
-//   categoryID: '57',
-//   productID: '25',
-//   productAmount: '10000',
+//   categoryID: '177',
+//   productID: '238',
+//   productAmount: '100000',
 //   customerID: '0912333212',
-//   partnerTransID: 'F10B255B',
-//   partnerTransDate: '20210405101235',
+//   partnerTransID: 'F10B255BZG',
+//   partnerTransDate: '20210507101235',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'YnUC1PlRtgqpInFlqdIcyzjySYwNh/8y3gEHebPld59QuVYWPHxNN59FFA2MX1119KRsknjnk8lf7c4lv9HQX0+zhaPcGlDuhoga1YKeujbaCzEQmY9w8KQkBLoNLThDUmMEdo+CtLRFvGF7/kT6WFNu7Vt7P83PNCdSS8Ot3xw=',
 // })
 
 let checkPartnerOrderService = new CheckPartnerOrder(config)
@@ -126,24 +94,22 @@ let checkPartnerOrderService = new CheckPartnerOrder(config)
 //   productID: '',
 //   productAmount: '',
 //   customerID: '',
-//   partnerTransID: 'F10B255B',
-//   partnerTransDate: '20210405101249',
+//   partnerTransID: 'F10B255BZC',
+//   partnerTransDate: '20210507101235',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'EdGxGPrB9nI9Q5KJKWpGcUoCOdk+w+kswxy+XDBk0FtQGAhJqWDCeiHVFsLm5ICiwpibXdGHSKy0NC97ji9cahf7gcGY4GzzYU/bjIX8GiwMtZY8Jjm5tc8fJgCZKqsiwAVlW39gQVG+9itUzyS/MK5Rb3mHaOkt3tBdIIGaZno=',
 // })
 
 let checkBillInfoService = new CheckBillInfo(config)
 
 // checkBillInfoService.checkBillInfo({
 //   partnerCode: '0912345331',
-//   categoryID: '7651',
-//   productID: '0',
+//   categoryID: '130',
+//   productID: '210',
 //   productAmount: '',
-//   customerID: 'ACS123456',
-//   partnerTransID: '20210405090435666',
-//   partnerTransDate: '20210405101250',
+//   customerID: '0912333212',
+//   partnerTransID: 'F10B255BZC',
+//   partnerTransDate: '20210507101235',
 //   data: '',
 //   dataSign: '',
 // })
@@ -168,16 +134,14 @@ let topUpGameService = new TopUpGame(config)
 
 // topUpGameService.payTopUpGame({
 //   partnerCode: '0912345331',
-//   categoryID: '115',
-//   productID: '211',
-//   productAmount: '10000',
+//   categoryID: '114',
+//   productID: '91',
+//   productAmount: '100000',
 //   customerID: 'vtctest01',
-//   partnerTransID: '20210419100619145',
-//   partnerTransDate: '20210419100619',
+//   partnerTransID: '202104GM12A',
+//   partnerTransDate: '20210507100619',
 //   data: '',
 //   dataSign: '',
-//   // dataSign:
-//   //   'VVhmoJxIUf6ftAFXK/BYfJ16hxpJPObeiTAa5K2O7hZGmEQFWrgFLxQWD6QF8RyRZU0AQGN48oWahG1kAB4WhOOZexuaagtFeI2FE8Ewq1qGZrabOQj+LnaCj5y+4bjCLFi5bSRPb/h0yOUylf1T0L521Z6A6e/r47RQ3HfdhYs=',
 // })
 
 let getCardDataService = new GetCardData(config)
@@ -187,12 +151,11 @@ let getCardDataService = new GetCardData(config)
 //   categoryID: '0',
 //   productID: '0',
 //   productAmount: '0',
-//   customerID: '20200804141823426',
-//   partnerTransID: '20210427130218809',
-//   partnerTransDate: '20210427130218',
-//   data: '355740',
-//   dataSign:
-//     'Frlh0SeGB8mmM4rcd+xu+svmCv/FcVyKACDOKcoOeAY/14g3jhq/Y95C3Qnb9kzzNX0ZElkofd2GSCO5P6BwToeRrIl76DJRQL6/jIp7KFSkVOFuaplv+byXEwwKir4bL5pVN2ZZSnKWF5KpILbkgNDMXxkjNcis9ZSjC+ERqnc=',
+//   customerID: 'vtctest01',
+//   partnerTransID: '202104GM12E',
+//   partnerTransDate: '20210507100619',
+//   data: '407789',
+//   dataSign: '',
 // })
 
 let getCardQuantityService = new GetCardQuantity(config)
@@ -213,12 +176,12 @@ let buyCardService = new BuyCard(config)
 
 // buyCardService.buyCard({
 //   partnerCode: '0912345331',
-//   categoryID: '114',
-//   productID: '91',
-//   productAmount: '10000',
-//   customerID: '',
-//   partnerTransID: '20210427130218776',
-//   partnerTransDate: '20210427130218',
+//   categoryID: '67',
+//   productID: '503',
+//   productAmount: '200000',
+//   customerID: 'vtctest02',
+//   partnerTransID: '202104GM12K',
+//   partnerTransDate: '20210507100619',
 //   data: '1',
 //   dataSign: '',
 // })
